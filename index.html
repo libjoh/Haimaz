@@ -245,7 +245,193 @@
   <a href="https://wa.me/9711378456" class="whatsapp-button" target="_blank" aria-label="Chat on WhatsApp">
     <img src="./img/whatsapp--v1.png" alt="WhatsApp">
   </a>
+
+ </div>
+<!-- Get quotes-->
+ <div class="floating-buttons-get">
+ <button class="open-modal-btn" onclick="openModal()">Get Free Estimate</button>
+
+  <div id="quoteModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2>Request a Quote</h2>
+
+      <form id="quoteForm" action="https://formspree.io/f/myzwrdrr" method="POST" target="_blank">
+        <div class="form-group">
+          <label for="email">Email ID</label>
+          <input type="email" name="email" id="email" required placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+          <label for="phone">Mobile Number</label>
+          <input type="tel" name="phone" id="phone" required placeholder="Enter your mobile number">
+        </div>
+
+        <div class="btn-group">
+          <button type="submit" class="email-btn">Send via Email</button>
+          <button type="button" class="whatsapp-btn" onclick="sendWhatsApp()">Send via WhatsApp</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
+  <script>
+    function openModal() {
+      document.getElementById('quoteModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('quoteModal').style.display = 'none';
+    }
+
+    function sendWhatsApp() {
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+
+      if (!email || !phone) {
+        alert("Please fill out both email and phone number.");
+        return;
+      }
+
+      const message = `Hi, I would like to request a quote from Haimaz Interiors. My Email: ${email}, Mobile: ${phone}`;
+      const whatsappNumber = "919711378456"; // Replace with your WhatsApp number
+      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+    }
+  </script>
+
+
+
+<!-- Get quotes ends-->
+
+<!-- FAQs Start -->
+  <div class="faq-container">
+    <h2 class="faq-title">FA<span>Qs</span> About <span>Home</span> Interior Design</h2>
+
+    <!-- Repeatable FAQ Item -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="accordion-question">1. What is the difference between interior design and decoration?</span>
+        <span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-content">
+        Interior design involves space planning, structural changes, and functionality. Decoration focuses on furnishings and aesthetics only.
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="accordion-question">2. Why should I hire an interior designer?</span>
+        <span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-content">
+        An interior designer saves time, avoids costly mistakes, optimizes your space, and brings a cohesive vision to life.
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="accordion-question">3. How much does interior design cost?</span>
+        <span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-content">
+        Costs vary depending on the scope of work. We offer flexible packages suited to your space and budget.
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="accordion-question">4. How long does a project take?</span>
+        <span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-content">
+        A typical home interior project takes 6-12 weeks. Timelines depend on project size, approvals, and materials.
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="accordion-question">5. Do I need to move out during renovation?</span>
+        <span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-content">
+        It depends on the scope. For light makeovers, no. For full-scale renovations, a temporary move may be recommended.
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="accordion-question">6. Can you work within my budget?</span>
+        <span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-content">
+        Yes. We work closely with you to align design choices with your financial comfort zone.
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="accordion-question">7. Will my personal style be included?</span>
+        <span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-content">
+        Absolutely! Our design process is tailored to your personality, preferences, and lifestyle needs.
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="accordion-question">8. Do you provide 3D renderings?</span>
+        <span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-content">
+        Yes, we provide detailed 3D visualizations and 2D plans so you can confidently approve the design before execution.
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="accordion-question">9. Do you handle turnkey projects?</span>
+        <span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-content">
+        Yes, we offer end-to-end turnkey solutions including design, materials, and execution—hassle-free.
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="accordion-question">10. What is your design process?</span>
+        <span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-content">
+        Consultation → Mood Boards → Planning → Design Approval → Execution → Final Handover. You're involved every step of the way.
+      </div>
+    </div>
+
+  </div>
+  
+  
+  <script>
+    const headers = document.querySelectorAll(".accordion-header");
+
+    headers.forEach(header => {
+      header.addEventListener("click", () => {
+        const content = header.nextElementSibling;
+        const icon = header.querySelector(".accordion-icon");
+
+        header.classList.toggle("active");
+        content.classList.toggle("active");
+
+        if (content.classList.contains("active")) {
+          icon.textContent = "−";
+        } else {
+          icon.textContent = "+";
+        }
+      });
+    });
+  </script>
+
+<!-- FAQs Ends-->
 
   <!-- Footer -->
   <section id="footer">
@@ -261,14 +447,14 @@
         <div class="social-item">
           <a href="https://www.instagram.com/haimazinteriors/"><img src="./img/icons8-instagram-48.png" /></a>
         </div>
-        <div class="social-item">
+        <!-- <div class="social-item">
           <a href="#"><img src="./img/icons8-twitter-48.png" /></a>
-        </div>
+        </div> -->
         <div class="social-item">
           <a href="https://www.linkedin.com/in/haimaz-interiors"><img src="./img/icons8-linkedin-48.png" /></a>
         </div>
       </div>
-      <p>Copyright © 2024 Haimaz.in All rights reserved</p>
+      <p>Copyright © 2024 Haimaz.com All rights reserved</p>
     </div>
   </section>
   <!-- End Footer -->
